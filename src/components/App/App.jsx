@@ -26,16 +26,16 @@ function App() {
   } // end getGallery const
 
   // PUT
-  const updateGallery = () => {
-    axios.put('/gallery/:id')
-    .then(response => {
-      console.log(response);
-      getGallery();
-    }) // end .then
-    .catch(err => {
-      console.log(err);
-    }) // end .catch, end axios.put
-  } // end updateGallery const
+  // const updateGallery = () => {
+  //   axios.put('/gallery/:id')
+  //   .then(response => {
+  //     console.log(response);
+  //     getGallery();
+  //   }) // end .then
+  //   .catch(err => {
+  //     console.log(err);
+  //   }) // end .catch, end axios.put
+  // } // end updateGallery const
 
 
     return (
