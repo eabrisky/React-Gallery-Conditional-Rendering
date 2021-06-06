@@ -1,10 +1,14 @@
 import './GalleryItem.css';
 
-function GalleryItem({galleryList}) {
+function GalleryItem(props) {
+  
     return (
         <>
             <p>in GalleryItem</p>
-            <p>{galleryList}</p>
+            <img src={props.path} height={150} width={250}/>
+            <p> </p>
+            <p>{props.description} {props.likes}</p>
+            <button>Like</button>
         </>
     ) // end return
 } // end GalleryItem fn
