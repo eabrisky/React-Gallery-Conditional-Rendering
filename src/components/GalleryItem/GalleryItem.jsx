@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function GalleryItem({description, likes, path, id, getGallery,}) {
 
-    const [hidden, setHidden] = useState(false);
+    const [hidden, setHidden] = useState(true);
 
     // put route can go here since we don't need it in app.jsx
 
@@ -25,7 +25,7 @@ function GalleryItem({description, likes, path, id, getGallery,}) {
     
         if (hidden === false) {
             return (
-                <p onClick={() => setHidden(!hidden)}>{description}</p>
+                <p onClick={() => setHidden(!hidden)} >{description}</p>
             )
         } else {
             return(
@@ -40,7 +40,7 @@ function GalleryItem({description, likes, path, id, getGallery,}) {
             {galleryHandler(id)}
             {/* ^ const to conditionally render either image or description */}
             <p> </p>
-            <button onClick={() => handleLike(id)}>Like</button>
+            <button onClick={() => handleLike(id)} className="btn btn-info">Like</button>
             <p>{likes} people like this photo!</p>
         </>
     ) // end return
