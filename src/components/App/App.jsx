@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     console.log('in useEffect');
     getGallery();
-  })
+  }, []); // end useEffect
 
   // GET
   const getGallery = () => {
@@ -37,7 +37,6 @@ function App() {
   //   }) // end .catch, end axios.put
   // } // end updateGallery const
 
-
     return (
       <div className="App">
         <header className="App-header">
@@ -45,7 +44,6 @@ function App() {
         </header>
         <p>Gallery goes here</p>
         <GalleryList galleryList={galleryList}/>
-        <img src="images/goat_small.jpg"/>
       </div>
     );
 }
