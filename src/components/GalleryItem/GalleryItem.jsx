@@ -2,7 +2,7 @@ import './GalleryItem.css';
 import axios from 'axios';
 
 function GalleryItem({description, likes, path, id, getGallery}) {
-  
+
     const handleLike = (id) => {
         
             axios.put(`/gallery/like/${id}`)
@@ -13,15 +13,26 @@ function GalleryItem({description, likes, path, id, getGallery}) {
             .catch(err => {
               console.log(err);
             }) // end .catch, end axios.put
-           // end updateGallery const
+           
     } // end handleLike const
+
+    const galleryHandler = () => {
+        if (likes=0) {
+            return (
+                <p>{description}</p>
+            )
+        } else {
+            return(
+                <img src={path} height={150} width={250}/>
+            )
+        }
+    } // end galleryHandler const
 
     return (
         <>
             <p>in GalleryItem</p>
-            <img src={path} height={150} width={250}/>
+            {galleryHandler()}
             <p> </p>
-            <p>{description}</p>
             <button onClick={() => handleLike(id)}>Like</button>
             <p>{likes} people like this photo!</p>
         </>
