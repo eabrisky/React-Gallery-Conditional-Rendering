@@ -1,14 +1,19 @@
 import './GalleryItem.css';
-import axios from 'axios';
+import axios from 'axios'; // bring in axios so you can use put route
+import { useState } from 'react';
 
-function GalleryItem({description, likes, path, id, getGallery}) {
+function GalleryItem({description, likes, path, id, getGallery,}) {
+
+    const [hidden, setHidden] = useState(false);
+
+    // put route can go here since we don't need it in app.jsx
 
     const handleLike = (id) => {
         
             axios.put(`/gallery/like/${id}`)
             .then(response => {
               console.log(response);
-              getGallery();
+              getGallery(); // reload the page
             }) // end .then
             .catch(err => {
               console.log(err);
@@ -17,21 +22,23 @@ function GalleryItem({description, likes, path, id, getGallery}) {
     } // end handleLike const
 
     const galleryHandler = () => {
-        if (likes=0) {
+    
+        if (hidden === false) {
             return (
-                <p>{description}</p>
+                <p onClick={() => setHidden(!hidden)}>{description}</p>
             )
         } else {
             return(
-                <img src={path} height={150} width={250}/>
+                <img src={path} height={150} width={250} onClick={() => setHidden(!hidden)}/>
             )
         }
+
     } // end galleryHandler const
 
     return (
         <>
-            <p>in GalleryItem</p>
-            {galleryHandler()}
+            {galleryHandler(id)}
+            {/* ^ const to conditionally render either image or description */}
             <p> </p>
             <button onClick={() => handleLike(id)}>Like</button>
             <p>{likes} people like this photo!</p>
