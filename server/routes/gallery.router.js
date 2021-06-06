@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
 // PUT Route
-router.put('/:id', (req, res) => {
+router.put('/like/:id', (req, res) => {
 
     console.log('got to PUT');
     console.log(req.params);
@@ -28,7 +28,7 @@ router.put('/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM "gallery" ORDER BY "likes" ASC;`;
+    const queryText = `SELECT * FROM "gallery" ORDER BY "id" ASC;`;
     pool.query(queryText)
     .then(response => {
         console.log('Things we got from db: ', response.rows);
