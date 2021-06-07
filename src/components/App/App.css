@@ -1,14 +1,20 @@
 .App {
   text-align: center;
+  background-color: #D6C7B2;
 }
 
 .App-header {
-  background-color: #F4C430;
+  background-color: #93A396;
   padding: 1em;
-  color: white;
+  color: #D6C7B2;
   margin-bottom: 1em;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 5em;
+  font-family: monospace;
+  box-shadow: 2px 2px 2px 3px black;
+  box-sizing: content-box;
+  font-style: oblique;
+  font-weight: 700;
 }
