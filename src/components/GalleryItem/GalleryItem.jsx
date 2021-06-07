@@ -25,11 +25,11 @@ function GalleryItem({description, likes, path, id, getGallery,}) {
     
         if (hidden === false) {
             return (
-                <p onClick={() => setHidden(!hidden)} >{description}</p>
+                <p onClick={() => setHidden(!hidden)} className="box description">{description}</p>
             )
         } else {
             return(
-                <img src={path} height={150} width={250} onClick={() => setHidden(!hidden)}/>
+                <img src={path} height={300} width={500} onClick={() => setHidden(!hidden)} className="box image"/>
             )
         }
 
@@ -37,12 +37,12 @@ function GalleryItem({description, likes, path, id, getGallery,}) {
 
     return (
         <>
-            {galleryHandler(id)}
+            <p>{galleryHandler(id)}</p>
             {/* ^ const to conditionally render either image or description */}
-            <p> </p>
-            <button onClick={() => handleLike(id)} className="btn btn-info">Like</button>
+            <button onClick={() => handleLike(id)} className="btn">Like</button>
             <p>{likes} people like this photo!</p>
         </>
+        
     ) // end return
 } // end GalleryItem fn
 
